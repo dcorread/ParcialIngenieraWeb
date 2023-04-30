@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantasService } from "../../plantas/plantas.service";
 import { Planta } from '../planta';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-planta-list',
@@ -15,7 +16,9 @@ export class PlantaListComponent implements OnInit {
 
   constructor(
     private plantSrvc: PlantasService
-  ) {}
+  ) {
+    this.plantas = [];
+  }
 
   ngOnInit() {
     this.getPlats();
@@ -26,6 +29,7 @@ export class PlantaListComponent implements OnInit {
       {
         next: success => {
           this.plantas = success;
+          console.log(this.plantas)
           for (const plant of this.plantas) {
             if (plant.tipo == "Interior") {
               this.totalInterior+=1;
