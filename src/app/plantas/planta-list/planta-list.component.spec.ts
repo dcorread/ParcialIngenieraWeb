@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlantaListComponent } from './planta-list.component';
+import { AppModule } from 'src/app/app.module';
 
 describe('PlantaListComponent', () => {
   let component: PlantaListComponent;
@@ -8,6 +9,7 @@ describe('PlantaListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [AppModule],
       declarations: [ PlantaListComponent ]
     })
     .compileComponents();
